@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Remember Me</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- 	<link rel="stylesheet" type="text/css" href="/css/style.css"> -->
+
+
+</head>
+<body>
+	<div class="container">
+		{{{body}}}
+
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$(".addNote").on('click', function(event) {
+				event.preventDefault()
+				var newNote = $(this).prev("input[type='text']").val().trim()
+				$.ajax({
+					method: "POST",
+					url: "/note/"+$(this).attr("data-postId"),
+					data: {
+						noteBody: newNote
+					}
+				})
+				.done(function(result) {
+					if (result) {
+						window.location = "/articles"
+					}
+				})
+			})
+		})
+	</script>
+</body>
+</html>

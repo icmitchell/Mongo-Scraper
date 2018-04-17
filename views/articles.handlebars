@@ -1,0 +1,33 @@
+<h2>Welcome!</h2>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th id="headline">Headline</th>
+            <th id="summary">Summary</th>
+            <th id="link">Link</th>
+            <th id="note">Note</th>
+            <th id="addNote">Add a Note</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each articles}}
+        <tr>
+            <td class="saved-headline">{{this.headline}}</td>
+            <td class="saved-summary">{{this.summary}}</td>
+            <td class="saved-link">{{this.link}}</td>
+            <td class="saved-note" >{{this.note}}</td>
+            <td><input type="text" class="noteInput" placeholder="Add a note"> <button type="button" class="addNote btn btn-primary btn-xs" data-postId='{{this.id}}'>Save</button></td>
+        </tr>
+        {{/each}}
+        <br>
+<!--     <form action="/api/website/" method="post">
+            <tr>
+                <td><input type="text" name="website" placeholder="New Website"/></td>
+                <td><input type="text" name="password" placeholder="New Password"/></td>
+                <td><input type="submit" value="Submit"/></td>
+            </tr>
+        </form> -->
+    </tbody>
+</table>
