@@ -7,7 +7,7 @@ var request = require("request"); //used
 var exphbs = require("express-handlebars"); //used
 
 var db = require("./models");
-var PORT = 8080;
+var PORT = process.env.PORT || 8080;
 var app = express();
 
 app.use(logger("dev"));
